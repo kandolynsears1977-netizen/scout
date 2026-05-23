@@ -1,2 +1,2 @@
 Money Making Machine
-support this project on PayPal
+{Support this project on PayPal}
