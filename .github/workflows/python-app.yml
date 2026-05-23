@@ -1,25 +1,23 @@
-name: Python application
+name: Run Scout Python App
 
-on: [push]
+on:
+push:
+branches: [ "main" ]
+schedule:
+- cron: '0 * * * *'
 
 jobs:
+build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
 
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-    - uses: actions/checkout@v4
-
-    - name: Set up Python
-
-      uses: actions/setup-python@v3
-
-      with:
-
-        python-version: "3.10"
-
-    - name: Run Python file
-
-      run: python your_script_name.py
+- name: Set up Python
+  uses: actions/setup-python@v5
+  with:
+    python-version: '3.10'
+    
+- name: Run scout.py
+  run: python scout.py
+  env:
+    PAYMENT_LINK: ${{ secrets.PAYMENT_LINK }}
