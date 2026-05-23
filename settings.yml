@@ -1,0 +1,9 @@
+settings:
+
+  home:
+
+    voice_commands:
+
+      keywords:
+
+        enabled: false
